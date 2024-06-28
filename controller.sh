@@ -1,8 +1,6 @@
 mkdir $HOME/size_controller
-cd $HOME/size_controller
-wget https://raw.githubusercontent.com/eeeZEGEN/scripts0g/main/control_size.py
-wget https://raw.githubusercontent.com/eeeZEGEN/scripts0g/main/config.json
-cd ~
+wget -P  $HOME/size_controller https://raw.githubusercontent.com/eeeZEGEN/scripts0g/main/control_size.py
+wget -P  $HOME/size_controller https://raw.githubusercontent.com/eeeZEGEN/scripts0g/main/config.json
 sudo tee /etc/systemd/system/size_controller.service > /dev/null <<EOF
 [Unit]
 Description=Size Controller
