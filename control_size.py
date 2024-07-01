@@ -3,6 +3,7 @@ import threading
 import time
 import json
 
+
 class Controller:
 
     control_objects: list = None
@@ -34,14 +35,18 @@ class Controller:
                     obj_path = os.path.expanduser(obj)
                     if os.path.exists(obj_path):
                         file_size = self.__get_size(obj_path)
+                        print(f"Checking size for {obj_path}: {file_size} bytes")  # Debug message
                         if file_size >= self.size:
+                            print(f"Size exceeds limit for {obj_path}, clearing...")  # Debug message
                             if os.path.isdir(obj_path):
                                 for file in os.listdir(obj_path):
                                     file_path = os.path.join(obj_path, file)
                                     if os.path.isfile(file_path):
+                                        print(f"Clearing file: {file_path}")  # Debug message
                                         with open(file_path, 'w') as f:
                                             f.write('')
                             else:
+                                print(f"Clearing file: {obj_path}")  # Debug message
                                 with open(obj_path, 'w') as f:
                                     f.write('')
                 except Exception as e:
