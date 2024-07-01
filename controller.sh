@@ -1,6 +1,22 @@
-mkdir $HOME/size_controller
-wget -P  $HOME/size_controller https://raw.githubusercontent.com/eeeZEGEN/scripts0g/main/control_size.py
-wget -P  $HOME/size_controller https://raw.githubusercontent.com/eeeZEGEN/scripts0g/main/config.json
+TARGET_DIR=$HOME/size_controller
+
+rm -rf $TARGET_DIR
+
+wget -P $TARGET_DIR https://raw.githubusercontent.com/eeeZEGEN/scripts0g/main/control_size.py
+wget -P $TARGET_DIR https://raw.githubusercontent.com/eeeZEGEN/scripts0g/main/config.json
+wget -P $TARGET_DIR https://raw.githubusercontent.com/eeeZEGEN/scripts0g/main/config_writer.py
+
+read -p 'Size: ' SIZE
+read -p 'Append/Set control object(0, 1(default)): ' SWITCH
+read -p 'Object: ' OBJECT
+
+$(which python3) $TARGET_DIR/config_writer.py -ss $SIZE
+if [ "$SWITCH" -eq 0 ]; then
+    $(which python3) $TARGET_DIR/config_writer.py -acf $OBJECT
+else
+    $(which python3) $TARGET_DIR/config_writer.py -scf $OBJECT
+fi
+
 sudo tee /etc/systemd/system/size_controller.service > /dev/null <<EOF
 [Unit]
 Description=Size Controller
