@@ -1,0 +1,8 @@
+#!/bin/bash
+
+CONFIG_FILE="/root/.0gchain/config/app.toml"
+sed -i 's/logs-cap = 10000/logs-cap = 100000/' "$CONFIG_FILE"
+sed -i 's/block-range-cap = 10000/block-range-cap = 100000/' "$CONFIG_FILE"
+sed -i 's/http-timeout = "30s"/http-timeout = "60s"/' "$CONFIG_FILE"
+
+echo "App.toml UPDATED!"
