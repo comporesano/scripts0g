@@ -45,7 +45,7 @@ const chainStore = useBlockchain()
       </div>
       <style>
       .coloring-class-test {
-        color: $COLOR;
+        color: $COLOR_HEX;
       }
       </style>
       <h1 class="coloring-class-test text-3xl md:!text-6xl font-bold">
