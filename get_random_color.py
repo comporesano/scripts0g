@@ -13,7 +13,8 @@ LIST_OF_COLOR_CLASSES = [
   'text-success dark:invert',
   'text-info dark:invert',
   'text-warning dark:invert',
-  'text-danger dark:invert'
+  'text-danger dark:invert',
+  ''
 ]
 
 print(choice(LIST_OF_COLOR_CLASSES))
