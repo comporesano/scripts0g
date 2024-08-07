@@ -49,7 +49,7 @@ const chainStore = useBlockchain()
         {{ $t('pages.title') }}
       </h1>
     </div>
-    <div class="text-center $RANDOM_COLOR_CLASS">
+    <div class="text-base text-center $RANDOM_COLOR_CLASS">
       <p class="mb-1">
         {{ $t('pages.slogan') }}
       </p>
