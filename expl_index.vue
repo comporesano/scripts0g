@@ -44,11 +44,8 @@ const chainStore = useBlockchain()
         <img src="$URL_SVG" alt='Crown'>
       </div>
       <style>
-      .coloring-class-test {
-        color: $COLOR_HEX;
-      }
       </style>
-      <h1 class="coloring-class-test text-3xl md:!text-6xl font-bold">
+      <h1 class="$RANDOM_COLOR_CLASS text-3xl md:!text-6xl font-bold">
         {{ $t('pages.title') }}
       </h1>
     </div>
