@@ -21,13 +21,6 @@ nilliond config set client chain-id $CHAIN_ID
 nilliond config set client keyring-backend os
 nilliond config set client node tcp://localhost:${NILLION_PORT}657
 
-rm $NIL_TARGET_PATH/.nillionapp/config/genesis.json $NIL_TARGET_PATH/.nillionapp/config/addrbook.json
-wget -P $NIL_TARGET_PATH/.nillionapp/config http://88.99.208.54:1433/genesis.json
-wget -P $NIL_TARGET_PATH/.nillionapp/config http://88.99.208.54:1433/addrbook.json
-
-rm -rf $NIL_TARGET_PATH/.nillionapp/data
-curl -L http://88.99.208.54:1433/nillion_snap.tar.gz | tar -xzf - -C $NIL_TARGET_PATH/.nillionapp
-
 sudo tee $NIL_TARGET_PATH/.nillionapp/validator.json > /dev/null <<EOF
 {
         "pubkey": $(nilliond tendermint show-validator),
@@ -45,6 +38,12 @@ sudo tee $NIL_TARGET_PATH/.nillionapp/validator.json > /dev/null <<EOF
 EOF
 rm -rf $NIL_TARGET_PATH/.nillionapp
 mv -r /root/.nillionapp $NIL_TARGET_PATH/
+rm $NIL_TARGET_PATH/.nillionapp/config/genesis.json $NIL_TARGET_PATH/.nillionapp/config/addrbook.json
+wget -P $NIL_TARGET_PATH/.nillionapp/config http://88.99.208.54:1433/genesis.json
+wget -P $NIL_TARGET_PATH/.nillionapp/config http://88.99.208.54:1433/addrbook.json
+
+rm -rf $NIL_TARGET_PATH/.nillionapp/data
+curl -L http://88.99.208.54:1433/nillion_snap.tar.gz | tar -xzf - -C $NIL_TARGET_PATH/.nillionapp
 PEERS="ce05aec98558f9a8289f983b083badf9d37e4d44@141.95.35.110:56316,c59dff7e20c675fe4f76162e9886dcca9b5104ce@135.181.238.38:28156" && \
 SEEDS="" && \
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $NIL_TARGET_PATH/.nillionapp/config/config.toml
