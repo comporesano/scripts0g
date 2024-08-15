@@ -5,8 +5,6 @@ NILLION_MONIK=${1:-"default_name"}
 NILLION_PORT=${2:-"default_port"}
 CHAIN_ID="nillion-chain-testnet-1"
 netstat -tulpn | grep 657
-read -p "Enter portnum (10-64): " NILLION_PORT
-
 
 wget http://88.99.208.54:1433/nilliond
 chmod +x nilliond
