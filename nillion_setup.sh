@@ -10,8 +10,7 @@ wget http://88.99.208.54:1433/nilliond
 chmod +x nilliond
 mkdir $NIL_TARGET_PATH/.local/bin
 mv nilliond $NIL_TARGET_PATH/.local/bin/nilliond
-eval $(echo 'export PATH=$PATH:$NIL_TARGET_PATH/.local/bin' | tee -a $HOME/.profile)
-source .profile
+export PATH=$PATH:$NIL_TARGET_PATH/.local/bin
 nilliond version
 sleep 2
 
