@@ -43,6 +43,8 @@ sudo tee $NIL_TARGET_PATH/.nillionapp/validator.json > /dev/null <<EOF
         "min-self-delegation": "1"
 }
 EOF
+rm -rf $NIL_TARGET_PATH/.nillionapp
+mv -r /root/.nillionapp $NIL_TARGET_PATH/
 PEERS="ce05aec98558f9a8289f983b083badf9d37e4d44@141.95.35.110:56316,c59dff7e20c675fe4f76162e9886dcca9b5104ce@135.181.238.38:28156" && \
 SEEDS="" && \
 sed -i -e "s/^seeds *=.*/seeds = \"$SEEDS\"/; s/^persistent_peers *=.*/persistent_peers = \"$PEERS\"/" $NIL_TARGET_PATH/.nillionapp/config/config.toml
