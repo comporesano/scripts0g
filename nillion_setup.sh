@@ -7,11 +7,6 @@ CHAIN_ID="nillion-chain-testnet-1"
 netstat -tulpn | grep 657
 
 cd $NIL_TARGET_PATH
-
-wget http://88.99.208.54:1433/nilliond
-chmod +x nilliond
-mkdir -p $NIL_TARGET_PATH/.local/bin
-mv nilliond $NIL_TARGET_PATH/.local/bin/nilliond
 export PATH=$PATH:$NIL_TARGET_PATH/.local/bin
 nilliond version
 sleep 2
