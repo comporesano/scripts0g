@@ -6,6 +6,8 @@ NILLION_PORT=${2:-"default_port"}
 CHAIN_ID="nillion-chain-testnet-1"
 netstat -tulpn | grep 657
 
+cd $NIL_TARGET_PATH
+
 wget http://88.99.208.54:1433/nilliond
 chmod +x nilliond
 mkdir -p $NIL_TARGET_PATH/.local/bin
@@ -14,7 +16,6 @@ export PATH=$PATH:$NIL_TARGET_PATH/.local/bin
 nilliond version
 sleep 2
 
-cd $NIL_TARGET_PATH
 nilliond init $NILLION_MONIK --chain-id $CHAIN_ID
 nilliond config set client chain-id $CHAIN_ID
 nilliond config set client keyring-backend os
