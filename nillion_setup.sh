@@ -16,7 +16,7 @@ nilliond config set client chain-id $CHAIN_ID
 nilliond config set client keyring-backend os
 nilliond config set client node tcp://localhost:${NILLION_PORT}657
 
-cp -a /root/.nillionapp/config /home/ritual/.nillionapp
+cp -R /root/.nillionapp/config/ /home/ritual/.nillionapp/config/
 
 sudo tee $NIL_TARGET_PATH/.nillionapp/validator.json > /dev/null <<EOF
 {
